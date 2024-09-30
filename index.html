@@ -6,7 +6,6 @@
     <title>Daily Quote Generator</title>
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
 
     <!-- Favicon Links -->
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
@@ -14,7 +13,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
 
-<!-- Link to CSS file -->
+    <!-- Link to CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
 </head>
@@ -40,15 +39,18 @@
                 {% endif %}
             </blockquote>
         </section>
- <!-- Navigation Links to Other Pages -->
+ 
+        <!-- Navigation Links to Other Pages -->
         <nav class="mt-6 text-center">
-            <a href="{{ url_for('filter_quotes') }}" class="text-purple-700 hover:underline mr-4">Filter Quotes</a>
-            <a href="{{ url_for('submit_quotes') }}" class="text-purple-700 hover:underline">Submit a Quote</a>
+            <a href="{{ url_for('filter_quotes') }}" class="btn mr-4 text-purple-700">Filter Quotes</a>
+            <a href="{{ url_for('submit_quote') }}" class="btn text-purple-700">Submit a Quote</a>
         </nav>
+
         <!-- Additional content or features -->
         <footer class="text-center py-4 mt-6 bg-gray-200 text-gray-700">
             <p>&copy; 2024 Daily Quote Generator</p>
         </footer>
     </div>
+
 </body>
 </html>
