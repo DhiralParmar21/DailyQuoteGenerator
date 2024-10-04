@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Quotes</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+   
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+</head>
+<body class="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg transform transition duration-500 hover:scale-105">
+        <!-- Header Section -->
+        <header  class="text-center mb-6">
+            <h1 class="text-4xl font-extrabold text-purple-900 mb-2">Filter Quotes</h1>
+            <p class="text-gray-700">Select a category or mood to filter the quotes.</p>
+        </header>
+
+        <!-- Filter Form Section -->
+        <section id="filter-form">
+            <form method="GET" action="{{ url_for('filter_quotes') }}" class="space-y-6">
+                <!-- Category Selection -->
+                <div class="form-group">
+                    <label for="category" class="block text-lg text-purple-800 font-semibold">Category:</label>
+                    <select name="category" id="category" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300 ease-in-out">
+                        <option value="">All Categories</option>
+                        {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                        <option value="Motivation">Motivation</option>
+                <option value="Positivity">Positivity</option>
+                <option value="Love">Love</option>
+                <option value="Wisdom">Wisdom</option>
+                <option value="Courage">Courage</option>
+                <option value="Success">Success</option>
+                <option value="Happiness">Happiness</option>
+                <option value="Friendship">Friendship</option>
+                <option value="Mindfulness">Mindfulness</option>
+               
+                    </select>
+                </div>
+
+                <!-- Mood Selection -->
+                <div class="form-group">
+                    <label for="mood" class="block text-lg text-purple-800 font-semibold">Mood:</label>
+                    <select name="mood" id="mood" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300 ease-in-out">
+                        <option value="">All Moods</option>
+                        <option value="Happy">Happy</option>
+                        <option value="Sad">Sad</option>
+                        <option value="Motivational">Motivational</option>
+                    </select>
+                </div>
+
+                 <!-- Submit Button -->
+                <div class="text-center">
+                <button type="submit" class="w-full bg-purple-700 text-white p-3 rounded-lg hover:bg-purple-800 transition-all duration-300 ease-in-out transform hover:scale-105">
+                    Filter Quotes
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Optional Quote Results Section -->
+    {% if quotes %}
+    <section id="filtered-quotes" class="mt-6">
+        <h2 class="text-2xl font-semibold text-purple-900 mb-4">Filtered Quotes</h2>
+        <ul class="space-y-4">
+            {% for quote in quotes %}
+            <li class="bg-gray-100 p-4 rounded-lg shadow-md hover:bg-purple-100 transition duration-300">
+                <blockquote class="text-lg italic">{{ quote[0] }}</blockquote>
+                <footer class="text-right">- {{ quote[1] }}</footer>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+</div>
+</body>
+</html>
