@@ -1,0 +1,17 @@
+{
+  "name": "quotesweb",
+  "version": "1.0.0",
+  "description": "The **Daily Quote Generator** is a web application that displays a different inspirational or thought-provoking quote each day. It also allows users to submit their own quotes and filter quotes by category or mood. The project is built using **Python Flask** for the backend, **MySQL** for the database, and standard web technologies (HTML, CSS, JavaScript) for the frontend.",
+  "main": "postcss.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx tailwindcss -o static/css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^3.4.12"
+  }
+}
